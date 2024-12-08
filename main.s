@@ -1,6 +1,9 @@
 .section .note.GNU-stack,"",@progbits
 
-.section .text
+.data
+    MSG: .byte '?' # Por algum motivo não funciona sem isso...
+
+.text
 
 .globl _start
 
