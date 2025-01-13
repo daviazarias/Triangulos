@@ -1,7 +1,7 @@
 .section .note.GNU-stack,"",@progbits
 
-.bss
-    sinal: .byte
+.section .data
+    sinal: .byte 0
 
 .text
 
@@ -22,7 +22,7 @@ leitura:
 ler_int:
     pushq %rbp
     movq %rsp, %rbp
-    subq $12, %rsp # Aumentando a pilha.
+    subq $16, %rsp # Aumentando a pilha.
 
     movq %rdi, %r10
     movq %rsp, %rdi # %rdi agora tem o endereço para o início do buffer.
@@ -78,6 +78,6 @@ ler_int:
     negl (%r10)
 
 .fim:
-    addq $12, %rsp # Restaurando o tamanho inicial da pilha.
+    addq $16, %rsp # Restaurando o tamanho inicial da pilha.
     popq %rbp
     ret
